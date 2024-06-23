@@ -1,0 +1,51 @@
+#ifndef __OPENSIMPLEX2S_H
+#define __OPENSIMPLEX2S_H
+
+#define S_PRIME_X 0x5205402B9270C86FL
+#define S_PRIME_Y 0x598CD327003817B5L
+#define S_PRIME_Z 0x5BCC226E9FA0BACBL
+#define S_PRIME_W 0x56CC5227E58F554BL
+#define S_HASH_MULTIPLIER 0x53A3F72DEEC546F5L
+#define S_SEED_FLIP_3D -0x52D547B2E96ED629L
+
+#define S_ROOT2OVER2 0.7071067811865476
+#define S_SKEW_2D 0.366025403784439
+#define S_UNSKEW_2D -0.21132486540518713
+
+#define S_ROOT3OVER3 0.577350269189626
+#define S_FALLBACK_ROTATE3 (2.0 / 3.0)
+#define S_ROTATE3_ORTHOGONALIZER S_UNSKEW_2D
+
+#define S_SKEW_4D 0.309016994374947f
+#define S_UNSKEW_4D -0.138196601125011f
+
+#define S_N_GRADS_2D_EXPONENT 7
+#define S_N_GRADS_3D_EXPONENT 8
+#define S_N_GRADS_4D_EXPONENT 9
+#define S_N_GRADS_2D (1 << S_N_GRADS_2D_EXPONENT)
+#define S_N_GRADS_3D (1 << S_N_GRADS_3D_EXPONENT)
+#define S_N_GRADS_4D (1 << S_N_GRADS_4D_EXPONENT)
+
+#define S_NORMALIZER_2D 0.05481866495625118
+#define S_NORMALIZER_3D 0.2781926117527186
+#define S_NORMALIZER_4D 0.11127401889945551
+
+#define S_RSQUARED_2D (2.0f / 3.0f)
+#define S_RSQUARED_3D (3.0f / 4.0f)
+#define S_RSQUARED_4D (4.0f / 5.0f)
+
+typedef struct LatticeVertex4D LatticeVertex4D;
+
+struct LatticeVertex4D {
+    const float dx, dy, dz, dw;
+    const long xsvp, ysvp, zsvp, wsvp;
+};
+
+#define S_GRADIENTS_2D_SRC "gradients/smooth/GRADIENTS_2D.h"
+#define S_GRADIENTS_3D_SRC "gradients/smooth/GRADIENTS_3D.h"
+#define S_GRADIENTS_4D_SRC "gradients/smooth/GRADIENTS_4D.h"
+
+#define S_LOOKUP_4D_A_SRC "gradients/smooth/LOOKUP_4D_A.h"
+#define S_LOOKUP_4D_B_SRC "gradients/smooth/LOOKUP_4D_B.h"
+
+#endif /* !__OPENSIMPLEX2S_H */
